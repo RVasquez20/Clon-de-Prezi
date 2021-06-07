@@ -1,0 +1,1 @@
+C:\Program Files\Graphviz\bin/dot.exe -Tjpg C:\Users\rodri\Downloads\graphviz_cSharp\1.dot - o C:\Users\rodri\Downloads\graphviz_cSharp\1.jpg
