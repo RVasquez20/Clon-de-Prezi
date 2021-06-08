@@ -1,0 +1,2 @@
+digraph G {
+  node1 [shape="circle"style="filled" fillcolor=aqua label="1"];}

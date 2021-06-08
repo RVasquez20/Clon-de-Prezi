@@ -18,8 +18,20 @@ namespace graphviz_cSharp
 {
     public partial class FormMenuPrincipal : Form
     {
+        [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
+
+        private static extern IntPtr CreateRoundRectRgn
+           (
+           int nLeftRect,
+           int nTopRect,
+           int RightRect,
+           int nBottomRect,
+           int nWidthEllipse,
+           int nHeightEllipse
+
+           );
         private int nodeCounter = 0;
-        Presentar v1;
+        imprimir v1;
         int iterador = 1;
         Queue<Bitmap> cola1 = new Queue<Bitmap>();
         Queue<Bitmap> cola2 = new Queue<Bitmap>();
@@ -27,12 +39,11 @@ namespace graphviz_cSharp
         string codGraphT = "";
         string dir = @"C:\Users\rodri\Downloads\graphviz_cSharp\";
         string dir2 = @"C:\Users\rodri\Downloads\graphviz_cSharp\bin\Debug\";
-        string Nombre = "", Rol = "";
-        string[] Shapes = { "box", "polygon", "ellipse", "oval", "circle", "point", "egg", "triangle", "plaintext",
+        string[] Shapes = { "box", "ellipse", "oval", "circle", "point", "egg", "triangle", "plaintext",
 "plain", "diamond", "trapezium", "parallelogram", "house", "pentagon", "hexagon",
 "septagon", "octagon", "doublecircle", "doubleoctagon", "tripleoctagon", "invtriangle",
-"invtrapezium", "invhouse", "Mdiamond", "Msquare", "Mcircle", "rect", "rectangle",
-"square", "star", "none", "underline",  "cylinder", "note", "tab", "folder","bbox3d",
+"invtrapezium", "invhouse", "mdiamond", "msquare", "mcircle", "rect", "rectangle",
+"square", "star", "none", "underline",  "cylinder", "note", "tab", "folder","box3d",
 "component","promoter","cds","terminator","utr","primersite","restrictionsite",
 "fivepoverhang","threepoverhang","noverhang","assembly","signature","insulator",
 "ribosite","rnastab","proteasesite","proteinstab","rpromoter","rarrow","larrow",
@@ -49,12 +60,19 @@ namespace graphviz_cSharp
 "mediumslateblue","white" };
 
 
-        public FormMenuPrincipal(string NombreUser, string rol)
+        public FormMenuPrincipal()
         {
             InitializeComponent();
             //Estas lineas eliminan los parpadeos del formulario o controles en la interfaz grafica (Pero no en un 100%)
+            Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 25, 25));
             this.SetStyle(ControlStyles.ResizeRedraw, true);
             this.DoubleBuffered = true;
+            CargarDatos();
+
+        }
+
+        private void CargarDatos()
+        {
             foreach (string item in Shapes)
             {
                 this.Shape.Items.Add(item);
@@ -63,8 +81,8 @@ namespace graphviz_cSharp
             {
                 this.Fill.Items.Add(item);
             }
-
         }
+
         //METODO PARA REDIMENCIONAR/CAMBIAR TAMAÑO A FORMULARIO  TIEMPO DE EJECUCION ----------------------------------------------------------
         private int tolerance = 15;
         private const int WM_NCHITTEST = 132;
@@ -175,14 +193,6 @@ namespace graphviz_cSharp
                 this.tmExpandirMenu.Start();
             }
 
-            //-------SIN EFECTO 
-            //if (panelMenu.Width == 55)
-            //{
-            //    panelMenu.Width = 230;
-            //}
-            //else
-
-            //    panelMenu.Width = 55;
         }
 
        
@@ -202,9 +212,12 @@ namespace graphviz_cSharp
 
         private void Agregar_Click(object sender, EventArgs e)
         {
+            
             string forma = Shape.Text;
             string Color = Fill.Text;
-            
+            lblConfirmada.Visible = false;
+            lblErrorMessagge.Visible = false;
+            pictureBox2.Image = null;
             if (this.nodeValueTextBox != null && this.nodeValueTextBox.Text != "")
             {
                 if (pictureBox1.Image != null)
@@ -245,8 +258,7 @@ namespace graphviz_cSharp
                 File.Delete(dir + "grapht.jpg");
                 pictureBox1.Image = bitmap;
                 this.Invoke(new Action(() => { pictureBox1.Refresh(); }));
-
-                this.Invoke(new Action(() => { pictureBox1.Refresh(); }));
+                msgconfirmada("Agregado Correctamente");
                 string texto = "";
                 texto = @"" + this.nodeNameTextBox.Text + " [shape=" + "\"" + forma + "\"" + "style=" + "\"filled" + "\"" + " fillcolor=" +  Color  + " label =" + "\"" + this.nodeValueTextBox.Text + "\"];";
                 this.fromNode.Items.Add(this.nodeValueTextBox.Text);
@@ -273,21 +285,22 @@ namespace graphviz_cSharp
             }
             else
             {
-                MessageBox.Show("null entries is not allowed");
+                msgError("No se permiten entradas Nulas");
             }
         }
 
         private void Unir_Click(object sender, EventArgs e)
         {
 
-
+            lblConfirmada.Visible = false;
+            lblErrorMessagge.Visible = false;
             if (nodeCounter < 2)
             {
-                MessageBox.Show("make more nodes");
+                msgError("Haga Mas Nodos");
             }
             else if (this.fromNode.Text == "" || this.towardsNode.Text == "")
             {
-                MessageBox.Show("select 2 nodes");
+                msgError("Seleccione 2 Nodos");
             }
             else
             {
@@ -325,14 +338,20 @@ namespace graphviz_cSharp
                 this.Invoke(new Action(() => { pictureBox1.Refresh(); }));
                 cola2.Enqueue(new Bitmap(Image.FromFile(dir2 + (this.fromNode.SelectedIndex+1).ToString() + ".jpg")));
                 cola2.Enqueue(new Bitmap(Image.FromFile(dir2 + (this.towardsNode.SelectedIndex+1).ToString() + ".jpg")));
-                MessageBox.Show(this.fromNode.Text + "-> " + this.towardsNode.Text);
+                msgconfirmada("Unido:"+this.fromNode.Text + "-> " + this.towardsNode.Text);
             }
         }
+        private void msgconfirmada(string msg)
+        {
+            lblConfirmada.Text = "      " + msg;
+            lblConfirmada.Visible = true;
 
+        }
         private void Presentar_Click(object sender, EventArgs e)
         {
             pictureBox1.Image.Dispose();
-
+            lblConfirmada.Visible = false;
+            lblErrorMessagge.Visible = false;
             File.Delete(dir + "grapht.dot");
             File.Delete(dir + "grapht.jpg");
             codGraph += "\n}";
@@ -368,15 +387,15 @@ namespace graphviz_cSharp
                 this.addNode.Enabled = true;
                 this.mergeNodes.Enabled = true;
                 File.Delete(dir + @"graph.dot");
-                Presentar v1;
+                imprimir v1;
                 if (Application.OpenForms["Presentar"] == null)
                 {
                     if (cola2==null) {
-                         v1 = new Presentar(cola1);
+                         v1 = new imprimir(cola1);
                     }
                     else
                     {
-                         v1 = new Presentar(cola2);
+                         v1 = new imprimir(cola2);
                     }
 
                     v1.Show();
@@ -390,7 +409,7 @@ namespace graphviz_cSharp
             }
             catch (Exception exception)
             {
-                MessageBox.Show("Error\n\n" + exception.Message);
+                msgError("Error\n\n" + exception.Message);
             }
           
         }
@@ -403,14 +422,33 @@ namespace graphviz_cSharp
                 panelMenu.Width = panelMenu.Width - 5;
         }
 
+        private void msgError(string msg)
+        {
+            lblErrorMessagge.Text = "      " + msg;
+            lblErrorMessagge.Visible = true;
 
+        }
 
+        private void Shape_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            MostrarPrevisualizacion(Shape.Text);
 
+        }
 
+        public void MostrarPrevisualizacion(String shape)
+        {
+            lblErrorMessagge.Visible = false;
+            try
+            {
+                pictureBox2.Image = Image.FromFile(@"../../Recursos/" + shape + ".png");
+                this.Invoke(new Action(() => { pictureBox2.Refresh(); }));
+            }catch(Exception e) { msgError(e.Message); }
+        }
 
-
-
-
+        private void acercaDeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Kimberly Jemima Tomas Montes De Oca\n1290-19-11531\nProgramación III", "Presentación_Grafos");
+        }
 
         private void Logout(object sender, FormClosedEventArgs e)
         {

@@ -32,6 +32,14 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMenuPrincipal));
             this.panelContenedorPrincipal = new System.Windows.Forms.Panel();
             this.panelContenedorForm = new System.Windows.Forms.Panel();
+            this.label9 = new System.Windows.Forms.Label();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.lblConfirmada = new System.Windows.Forms.Label();
+            this.lblErrorMessagge = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.Fill = new System.Windows.Forms.ComboBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.Shape = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -60,12 +68,10 @@
             this.tmExpandirMenu = new System.Windows.Forms.Timer(this.components);
             this.tmContraerMenu = new System.Windows.Forms.Timer(this.components);
             this.tmFechaHora = new System.Windows.Forms.Timer(this.components);
-            this.label7 = new System.Windows.Forms.Label();
-            this.Shape = new System.Windows.Forms.ComboBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.Fill = new System.Windows.Forms.ComboBox();
+            this.acercaDeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panelContenedorPrincipal.SuspendLayout();
             this.panelContenedorForm.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
             this.panelMenu.SuspendLayout();
@@ -90,6 +96,10 @@
             // panelContenedorForm
             // 
             this.panelContenedorForm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(69)))), ((int)(((byte)(76)))));
+            this.panelContenedorForm.Controls.Add(this.label9);
+            this.panelContenedorForm.Controls.Add(this.pictureBox2);
+            this.panelContenedorForm.Controls.Add(this.lblConfirmada);
+            this.panelContenedorForm.Controls.Add(this.lblErrorMessagge);
             this.panelContenedorForm.Controls.Add(this.label8);
             this.panelContenedorForm.Controls.Add(this.Fill);
             this.panelContenedorForm.Controls.Add(this.label7);
@@ -109,47 +119,134 @@
             this.panelContenedorForm.Size = new System.Drawing.Size(1190, 575);
             this.panelContenedorForm.TabIndex = 6;
             // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Century Gothic", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.SystemColors.Window;
+            this.label9.Location = new System.Drawing.Point(1017, 6);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(135, 42);
+            this.label9.TabIndex = 30;
+            this.label9.Text = "Previsualizacion\r\n    De Forma";
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Location = new System.Drawing.Point(995, 51);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(178, 96);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 29;
+            this.pictureBox2.TabStop = false;
+            // 
+            // lblConfirmada
+            // 
+            this.lblConfirmada.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblConfirmada.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.lblConfirmada.Image = ((System.Drawing.Image)(resources.GetObject("lblConfirmada.Image")));
+            this.lblConfirmada.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblConfirmada.Location = new System.Drawing.Point(167, 115);
+            this.lblConfirmada.Name = "lblConfirmada";
+            this.lblConfirmada.Size = new System.Drawing.Size(408, 32);
+            this.lblConfirmada.TabIndex = 28;
+            this.lblConfirmada.Text = "Ok";
+            this.lblConfirmada.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblConfirmada.Visible = false;
+            // 
+            // lblErrorMessagge
+            // 
+            this.lblErrorMessagge.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblErrorMessagge.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.lblErrorMessagge.Image = ((System.Drawing.Image)(resources.GetObject("lblErrorMessagge.Image")));
+            this.lblErrorMessagge.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblErrorMessagge.Location = new System.Drawing.Point(581, 115);
+            this.lblErrorMessagge.Name = "lblErrorMessagge";
+            this.lblErrorMessagge.Size = new System.Drawing.Size(408, 32);
+            this.lblErrorMessagge.TabIndex = 27;
+            this.lblErrorMessagge.Text = "Error";
+            this.lblErrorMessagge.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblErrorMessagge.Visible = false;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
+            this.label8.ForeColor = System.Drawing.SystemColors.Window;
+            this.label8.Location = new System.Drawing.Point(349, 57);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(70, 19);
+            this.label8.TabIndex = 26;
+            this.label8.Text = "Relleno:";
+            // 
+            // Fill
+            // 
+            this.Fill.FormattingEnabled = true;
+            this.Fill.Location = new System.Drawing.Point(418, 60);
+            this.Fill.Name = "Fill";
+            this.Fill.Size = new System.Drawing.Size(102, 21);
+            this.Fill.TabIndex = 25;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
+            this.label7.ForeColor = System.Drawing.SystemColors.Window;
+            this.label7.Location = new System.Drawing.Point(349, 19);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(63, 19);
+            this.label7.TabIndex = 24;
+            this.label7.Text = "Forma:";
+            // 
+            // Shape
+            // 
+            this.Shape.FormattingEnabled = true;
+            this.Shape.Location = new System.Drawing.Point(418, 22);
+            this.Shape.Name = "Shape";
+            this.Shape.Size = new System.Drawing.Size(102, 21);
+            this.Shape.TabIndex = 23;
+            this.Shape.SelectedIndexChanged += new System.EventHandler(this.Shape_SelectedIndexChanged);
+            // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Century Gothic", 12F);
+            this.label2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
             this.label2.ForeColor = System.Drawing.SystemColors.Window;
-            this.label2.Location = new System.Drawing.Point(784, 19);
+            this.label2.Location = new System.Drawing.Point(546, 25);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(36, 21);
+            this.label2.Size = new System.Drawing.Size(34, 19);
             this.label2.TabIndex = 22;
             this.label2.Text = "De:";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Century Gothic", 12F);
+            this.label4.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
             this.label4.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.label4.Location = new System.Drawing.Point(784, 55);
+            this.label4.Location = new System.Drawing.Point(546, 61);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(50, 21);
+            this.label4.Size = new System.Drawing.Size(49, 19);
             this.label4.TabIndex = 21;
             this.label4.Text = "Para:";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Century Gothic", 12F);
+            this.label5.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.SystemColors.Window;
             this.label5.Location = new System.Drawing.Point(20, 17);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(73, 21);
+            this.label5.Size = new System.Drawing.Size(73, 19);
             this.label5.TabIndex = 20;
             this.label5.Text = "Nombre";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Century Gothic", 12F);
+            this.label6.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
             this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(43, 53);
+            this.label6.Location = new System.Drawing.Point(29, 72);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(50, 21);
+            this.label6.Size = new System.Drawing.Size(50, 19);
             this.label6.TabIndex = 19;
             this.label6.Text = "Valor";
             // 
@@ -158,7 +255,7 @@
             this.nodeValueTextBox.Location = new System.Drawing.Point(99, 43);
             this.nodeValueTextBox.Multiline = true;
             this.nodeValueTextBox.Name = "nodeValueTextBox";
-            this.nodeValueTextBox.Size = new System.Drawing.Size(241, 38);
+            this.nodeValueTextBox.Size = new System.Drawing.Size(244, 69);
             this.nodeValueTextBox.TabIndex = 18;
             // 
             // nodeNameTextBox
@@ -173,7 +270,7 @@
             // towardsNode
             // 
             this.towardsNode.FormattingEnabled = true;
-            this.towardsNode.Location = new System.Drawing.Point(866, 55);
+            this.towardsNode.Location = new System.Drawing.Point(628, 61);
             this.towardsNode.Name = "towardsNode";
             this.towardsNode.Size = new System.Drawing.Size(262, 21);
             this.towardsNode.TabIndex = 16;
@@ -181,16 +278,16 @@
             // fromNode
             // 
             this.fromNode.FormattingEnabled = true;
-            this.fromNode.Location = new System.Drawing.Point(866, 16);
+            this.fromNode.Location = new System.Drawing.Point(628, 22);
             this.fromNode.Name = "fromNode";
             this.fromNode.Size = new System.Drawing.Size(262, 21);
             this.fromNode.TabIndex = 15;
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(0, 83);
+            this.pictureBox1.Location = new System.Drawing.Point(0, 150);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(1190, 480);
+            this.pictureBox1.Size = new System.Drawing.Size(1190, 413);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 14;
             this.pictureBox1.TabStop = false;
@@ -222,7 +319,7 @@
             this.lbFecha.AutoSize = true;
             this.lbFecha.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbFecha.ForeColor = System.Drawing.Color.White;
-            this.lbFecha.Location = new System.Drawing.Point(436, 7);
+            this.lbFecha.Location = new System.Drawing.Point(510, 7);
             this.lbFecha.Name = "lbFecha";
             this.lbFecha.Size = new System.Drawing.Size(150, 13);
             this.lbFecha.TabIndex = 4;
@@ -233,7 +330,7 @@
             this.lblHora.AutoSize = true;
             this.lblHora.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblHora.ForeColor = System.Drawing.Color.LightGray;
-            this.lblHora.Location = new System.Drawing.Point(357, 5);
+            this.lblHora.Location = new System.Drawing.Point(415, 5);
             this.lblHora.Name = "lblHora";
             this.lblHora.Size = new System.Drawing.Size(55, 15);
             this.lblHora.TabIndex = 1;
@@ -260,12 +357,13 @@
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.addNode,
             this.mergeNodes,
-            this.drawButton});
+            this.drawButton,
+            this.acercaDeToolStripMenuItem});
             this.menuStrip1.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.VerticalStackWithOverflow;
             this.menuStrip1.Location = new System.Drawing.Point(0, 108);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.menuStrip1.Size = new System.Drawing.Size(160, 114);
+            this.menuStrip1.Size = new System.Drawing.Size(160, 185);
             this.menuStrip1.TabIndex = 13;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -278,8 +376,10 @@
             this.addNode.Image = ((System.Drawing.Image)(resources.GetObject("addNode.Image")));
             this.addNode.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.addNode.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.addNode.Margin = new System.Windows.Forms.Padding(0, 0, 0, 10);
             this.addNode.Name = "addNode";
-            this.addNode.Size = new System.Drawing.Size(153, 36);
+            this.addNode.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.A)));
+            this.addNode.Size = new System.Drawing.Size(158, 36);
             this.addNode.Text = "   AGREGAR";
             this.addNode.Click += new System.EventHandler(this.Agregar_Click);
             // 
@@ -290,9 +390,10 @@
             this.mergeNodes.Image = ((System.Drawing.Image)(resources.GetObject("mergeNodes.Image")));
             this.mergeNodes.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.mergeNodes.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.mergeNodes.Margin = new System.Windows.Forms.Padding(0, 0, 0, 10);
             this.mergeNodes.Name = "mergeNodes";
-            this.mergeNodes.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.F1)));
-            this.mergeNodes.Size = new System.Drawing.Size(153, 36);
+            this.mergeNodes.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.U)));
+            this.mergeNodes.Size = new System.Drawing.Size(158, 36);
             this.mergeNodes.Text = "   UNIR";
             this.mergeNodes.Click += new System.EventHandler(this.Unir_Click);
             // 
@@ -303,6 +404,7 @@
             this.drawButton.Image = ((System.Drawing.Image)(resources.GetObject("drawButton.Image")));
             this.drawButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.drawButton.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.drawButton.Margin = new System.Windows.Forms.Padding(0, 0, 0, 10);
             this.drawButton.Name = "drawButton";
             this.drawButton.ShortcutKeys = System.Windows.Forms.Keys.F5;
             this.drawButton.Size = new System.Drawing.Size(153, 36);
@@ -342,7 +444,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(477, 9);
+            this.label1.Location = new System.Drawing.Point(12, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(242, 24);
             this.label1.TabIndex = 7;
@@ -420,43 +522,19 @@
             this.tmFechaHora.Enabled = true;
             this.tmFechaHora.Tick += new System.EventHandler(this.tmFechaHora_Tick);
             // 
-            // label7
+            // acercaDeToolStripMenuItem
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.label7.ForeColor = System.Drawing.SystemColors.Window;
-            this.label7.Location = new System.Drawing.Point(349, 19);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(63, 21);
-            this.label7.TabIndex = 24;
-            this.label7.Text = "Forma:";
-            // 
-            // Shape
-            // 
-            this.Shape.FormattingEnabled = true;
-            this.Shape.Location = new System.Drawing.Point(418, 22);
-            this.Shape.Name = "Shape";
-            this.Shape.Size = new System.Drawing.Size(102, 21);
-            this.Shape.TabIndex = 23;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.label8.ForeColor = System.Drawing.SystemColors.Window;
-            this.label8.Location = new System.Drawing.Point(349, 57);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(70, 21);
-            this.label8.TabIndex = 26;
-            this.label8.Text = "Relleno:";
-            // 
-            // Fill
-            // 
-            this.Fill.FormattingEnabled = true;
-            this.Fill.Location = new System.Drawing.Point(418, 60);
-            this.Fill.Name = "Fill";
-            this.Fill.Size = new System.Drawing.Size(102, 21);
-            this.Fill.TabIndex = 25;
+            this.acercaDeToolStripMenuItem.Font = new System.Drawing.Font("Century Gothic", 12F);
+            this.acercaDeToolStripMenuItem.ForeColor = System.Drawing.SystemColors.Control;
+            this.acercaDeToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("acercaDeToolStripMenuItem.Image")));
+            this.acercaDeToolStripMenuItem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.acercaDeToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.acercaDeToolStripMenuItem.Margin = new System.Windows.Forms.Padding(0, 0, 0, 5);
+            this.acercaDeToolStripMenuItem.Name = "acercaDeToolStripMenuItem";
+            this.acercaDeToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.F1)));
+            this.acercaDeToolStripMenuItem.Size = new System.Drawing.Size(153, 36);
+            this.acercaDeToolStripMenuItem.Text = "   Acerca De";
+            this.acercaDeToolStripMenuItem.Click += new System.EventHandler(this.acercaDeToolStripMenuItem_Click);
             // 
             // FormMenuPrincipal
             // 
@@ -470,10 +548,12 @@
             this.MinimumSize = new System.Drawing.Size(680, 500);
             this.Name = "FormMenuPrincipal";
             this.Opacity = 0.95D;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.panelContenedorPrincipal.ResumeLayout(false);
             this.panelContenedorForm.ResumeLayout(false);
             this.panelContenedorForm.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -524,6 +604,11 @@
         private System.Windows.Forms.ComboBox Shape;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.ComboBox Fill;
+        private System.Windows.Forms.Label lblConfirmada;
+        private System.Windows.Forms.Label lblErrorMessagge;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.ToolStripMenuItem acercaDeToolStripMenuItem;
     }
 }
 
