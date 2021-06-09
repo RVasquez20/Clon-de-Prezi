@@ -155,7 +155,6 @@ C:\Users\rodri\Downloads\graphviz_cSharp\bin\Debug\ru\DevExpress.Pdf.v21.1.Core.
 C:\Users\rodri\Downloads\graphviz_cSharp\obj\Debug\graphviz_cSharp.csproj.CopyComplete
 C:\Users\rodri\Downloads\graphviz_cSharp\obj\Debug\graphviz_cSharp.csproj.AssemblyReference.cache
 C:\Users\rodri\Downloads\graphviz_cSharp\bin\Debug\Microsoft.VisualBasic.PowerPacks.Vs.dll
-C:\Users\rodri\Downloads\graphviz_cSharp\obj\Debug\graphviz_cSharp.FormPrincipal.resources
 C:\Users\rodri\Downloads\graphviz_cSharp\obj\Debug\graphviz_cSharp.FormMenuPrincipal.resources
 C:\Users\rodri\Downloads\graphviz_cSharp\bin\Debug\FontAwesome.Sharp.dll
 C:\Users\rodri\Downloads\graphviz_cSharp\bin\Debug\FontAwesome.Sharp.Pro.dll
